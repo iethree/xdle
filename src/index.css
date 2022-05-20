@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-800 text-gray-200;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+  @apply text-4xl md:text-6xl font-bold;
+}
+
+

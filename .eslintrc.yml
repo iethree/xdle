@@ -1,0 +1,31 @@
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:react-hooks/recommended
+  - plugin:import/recommended
+env:
+  browser: true
+  commonjs: true
+  node: true
+  es6: true
+  mocha: true
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+rules:
+  react/prop-types: 0
+  no-unused-expressions: 0
+  react/jsx-no-prop-spreading: 0
+  react/jsx-props-no-spreading: 0
+  react/jsx-one-expression-per-line: 0
+  react-hooks/exhaustive-deps: 1
+  strict:
+    - error
+    - global
+ignorePatterns:
+  - "**/test/**"
+settings:
+  react:
+    version: detect
