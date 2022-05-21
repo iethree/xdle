@@ -11,7 +11,6 @@ export default function App() {
   const [showFilters, setShowFilters] = useState(false);
 
   const filterCategories = useCallback((link) => {
-    console.log({link})
     if (category === 'all'){
       return true;
     }
