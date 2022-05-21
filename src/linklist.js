@@ -1,8 +1,8 @@
-export default [
+const links = [
   {
     title: "Wordle",
     url: "https://www.nytimes.com/games/wordle/index.html",
-    description: "The original, now owned by the new york times",
+    description: "The original, now owned by the New York Times",
     categories: ["word"],
   },
   {
@@ -122,10 +122,21 @@ export default [
     description: "Guess the Star Wars related word",
     categories: ["funny"],
   },
-  {
-    title: "",
-    url: "",
-    description: "",
-    categories: [""],
-  },
 ];
+
+/* template
+{
+  title: "",
+  url: "",
+  description: "",
+  categories: [""],
+},
+*/
+
+function sortByCategory(a,b) {
+  if (a.title === "Wordle") return -1;
+  if (b.title === "Wordle") return 1;
+  return a.categories[0] < b.categories[0] ? 1 : -1;
+}
+
+export default links.sort(sortByCategory);

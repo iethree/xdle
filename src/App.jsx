@@ -19,45 +19,62 @@ export default function App() {
   }, [category]);
 
   return (
-    <div className="p-5 max-w-md mx-auto">
+    <div className="p-5 max-w-md mx-auto relative">
       <Title />
       <FilterIcon
         className={`${showFilters ? 'text-white' : 'text-gray-600'} h-5 w-5 flex-shrink-0 absolute top-0 right-0 m-3`}
         title="show/hide filters"
         onClick={() => setShowFilters(!showFilters)}
       />
-      <div className="my-2" title="filters">
-        {showFilters && (
-          <div className="flex flex-wrap gap-2 justify-center">
-            <CategoryButton
-              name={'all'}
-              color="bg-gray-400"
-              onClick={() => setCategory('all')}
-            />
-            {categories.map((c, i) => (
-              <CategoryButton
-                key={i}
-                name={c}
-                color={colors[i]}
-                onClick={() => setCategory(c)}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-      <div>
-        <ul>
-          {links.filter(filterCategories).map(ListItem)}
-        </ul>
-      </div>
+      <FilterButtons
+        showFilters={showFilters}
+        category={category}
+        setCategory={setCategory}
+      />
+      <ul>
+        {links.filter(filterCategories).map(i => (
+          <ListItem
+            key={i.url}
+            data={i}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
 
-function CategoryButton({ name, color, onClick }){
+function FilterButtons({ showFilters, setCategory, category }) {
+  return (
+    <div className="my-2" title="filters">
+      {showFilters && (
+        <div className="flex flex-wrap gap-2 justify-center">
+          <CategoryButton
+            name={'all'}
+            active={category === 'all'}
+            color="bg-gray-400"
+            onClick={() => setCategory('all')}
+          />
+          {categories.map((c, i) => (
+            <CategoryButton
+              key={i}
+              active={category === c}
+              name={c}
+              color={colorMap[c]}
+              onClick={() => setCategory(c)}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CategoryButton({ name, color, onClick, active }){
   return (
     <button
-      className={`${color} rounded-md text-white text-sm font-bold px-2 py-1`}
+      className={`
+        ${color} ${active ? 'border-2 border-white' : ''} w-24 h-8 rounded-md text-white text-sm font-bold px-2 py-1
+      `}
       onClick={onClick}
     >
       {name}
@@ -84,7 +101,7 @@ function Title() {
   );
 }
 
-function ListItem({ title, url, description, categories: categoryList }) {
+function ListItem({ data: { title, url, description, categories: categoryList } }) {
   if (!title || !url) return null;
   return (
     <li className="my-5 rounded-md border border-gray-900 bg-gray-700 hover:shadow-lg">
