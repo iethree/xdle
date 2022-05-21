@@ -122,6 +122,66 @@ const links = [
     description: "Guess the Star Wars related word",
     categories: ["funny"],
   },
+  {
+    title: "Waffle",
+    url: "https://wafflegame.net/",
+    description: "find the word by swapping letters in a grid",
+    categories: ["word"],
+  },
+  {
+    title: "Framed",
+    url: "https://framed.wtf/",
+    description: "Guess the movie from a single frame",
+    categories: ["media"],
+  },
+  {
+    title: "Squirdle",
+    url: "https://squirdle.fireblend.com/",
+    description: "Guess the Pokemon",
+    categories: ["funny"],
+  },
+  {
+    title: "Crosswordle",
+    url: "https://crosswordle.vercel.app/",
+    description: "Start with the wordle answer and work backwards",
+    categories: ["word"],
+  },
+  {
+    title: "dungleon",
+    url: "https://www.dungleon.com/",
+    description: "Guess the dungeon layout",
+    categories: ["media"],
+  },
+  {
+    title: "Nerdle",
+    url: "https://nerdlegame.com/",
+    description: "Guess the equation",
+    categories: ["math"],
+  },
+  {
+    title: "Box Office Game",
+    url: "https://boxofficega.me/",
+    description: "Guess the 5 highest-grossing movies for the given weekend",
+    categories: ["media"],
+  },
+  {
+    title: "Squabble",
+    url: "https://squabble.me/",
+    description: "Competetive battle-royale wordle",
+    categories: ["word"],
+  },
+  {
+    title: "Speedle",
+    url: "https://tck.mn/speedle/",
+    description: "Wordle Speedrun",
+    categories: ["word"],
+  },
+  {
+    title: "Passwordle",
+    url: "https://passwordle.com/",
+    description: "crack the password",
+    categories: ["word"],
+  },
 ];
 
 /* template
